@@ -18,6 +18,7 @@ export default function Content() {
 
   const [visible, setVisible] = useState(false)
   const [selectedMenu, setSelectedMenu] = useState()
+  const [selectedResto, setSelectedResto] = useState()
 
   const onMenuClick = (data) => {
     setSelectedMenu(restaurantsData[data.restaurant].menus[data.menu])
@@ -27,9 +28,24 @@ export default function Content() {
   const closeModal = () => {
     setVisible(false)
   }
+
+  const onVote = (data) => {
+    if (data === selectedResto) {
+      setSelectedResto()
+    } else {
+      setSelectedResto(data)
+    }
+    //console.log(data)
+  }
+
+
   return (
     <>
       <div className="container">
+
+        {selectedResto !== undefined ? <div className="notification">
+          You vote <b>{restaurantsData[selectedResto].name}</b>, you can unvote before end time
+        </div> : ""}
         <div className="card-container">
           {restaurantsData.map((resto, index) => (
             <Card
@@ -40,6 +56,8 @@ export default function Content() {
               index={index}
               onMenuClick={onMenuClick}
               key={index}
+              voted={selectedResto === index && selectedResto !== undefined ? false : true}
+              onVote={onVote}
             />
           ))}
         </div><br /><br />

@@ -9,6 +9,10 @@ export default function Card(props) {
     })
   }
 
+  const onVoteClick = (index) => {
+    return props.onVote(index)
+  }
+
   return (
     <>
       <div className="card" key={props.index}>
@@ -41,11 +45,13 @@ export default function Card(props) {
               </div>
             </div>
           ))}
-          <br />
+
         </div>
 
-        <div style={{ textAlign: "center" }}>
-          <button className="button">Vote</button>
+        <div style={{ textAlign: "center", marginTop: 10 }}>
+          <button className={!props.voted ? "card-button-active" : "card-button"} onClick={() => onVoteClick(props.index)}>
+            {props.voted ? "Vote" : "Unvote"}
+          </button>
         </div>
 
       </div>
