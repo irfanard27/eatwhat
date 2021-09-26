@@ -1,9 +1,17 @@
 import React from 'react'
 
 export default function Card(props) {
+
+  const onMenuClick = (index) => {
+    return props.onMenuClick({
+      restaurant: props.index,
+      menu: index
+    })
+  }
+
   return (
     <>
-      <div className="card">
+      <div className="card" key={props.index}>
         <div className="card-thumbnail">
           <img src={`img/${props.img}`} alt={props.img} />
         </div>
@@ -20,11 +28,11 @@ export default function Card(props) {
         </div>
 
         <div>
-          {props.menus.map(mns => (
-            <div className="card-menu-list">
+          {props.menus.map((mns, index) => (
+            <div className="card-menu-list" key={index} onClick={() => onMenuClick(index)}>
               <div className="list-container">
                 <div className="list-thumbnail">
-
+                  <img src={`img/${mns.img}`} alt="img" />
                 </div>
                 <div>
                   {mns.name}<br />

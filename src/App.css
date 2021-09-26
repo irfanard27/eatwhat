@@ -70,6 +70,7 @@ body {
 
 .card-menu-list {
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .button {
@@ -100,6 +101,52 @@ body {
   border-radius: 5px;
 }
 
+.list-thumbnail > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
 small {
   color: #55626b;
+}
+
+.modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.351);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-right: -5px;
+  margin-left: -5px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.input {
+  border: 1px solid #d1d1d1;
+  padding: 5px;
+  outline: none;
+  display: inline;
+  border-radius: 5px;
+  width: 60px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
