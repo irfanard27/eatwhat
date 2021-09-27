@@ -69,21 +69,25 @@ export default function Content(props) {
               ""
             }
 
-            <div className="card-container">
+            <div className="grid-container">
               {restaurantsData.map((resto, index) => (
-                <Card
-                  title={resto.name}
-                  phone={resto.phone}
-                  menus={resto.menus}
-                  img={resto.img}
-                  index={index}
-                  onMenuClick={onMenuClick}
-                  key={index}
-                  voted={selectedResto === index && selectedResto !== undefined ? false : true}
-                  onVote={onVote}
-                />
+                <div className="grid-item">
+                  <Card
+                    title={resto.name}
+                    phone={resto.phone}
+                    menus={resto.menus}
+                    img={resto.img}
+                    index={index}
+                    onMenuClick={onMenuClick}
+                    key={index}
+                    voted={selectedResto === index && selectedResto !== undefined ? false : true}
+                    onVote={onVote}
+                  />
+                </div>
               ))}
-            </div></>
+            </div>
+
+          </>
         }
         <br /><br />
       </div>
