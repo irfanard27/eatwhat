@@ -55,6 +55,16 @@ body {
   margin-bottom: 10px;
 }
 
+.card2 {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+  width: 360px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
 .card-thumbnail {
   background-color: rgb(235, 235, 235);
   height: 150px;
@@ -70,6 +80,7 @@ body {
 
 .card-menu-list {
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .button {
@@ -100,6 +111,99 @@ body {
   border-radius: 5px;
 }
 
+.list-thumbnail > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
 small {
   color: #55626b;
+}
+
+.modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.351);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-right: -5px;
+  margin-left: -5px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.input {
+  border: 1px solid #d1d1d1;
+  padding: 5px;
+  outline: none;
+  display: inline;
+  border-radius: 5px;
+  width: 60px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.card-button {
+  background: #fff;
+  padding: 10px;
+  color: salmon;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 0px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.card-button:hover {
+  border: 0;
+  background: rgba(250, 128, 114, 0.171);
+  transition: 0.1s all ease 0.1s;
+}
+
+.card-button-active {
+  background: salmon;
+  padding: 10px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 0px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.card-button-active:hover {
+  background: rgba(250, 128, 114, 0.733);
+  transition: 0.1s all ease 0.1s;
+}
+
+.notification {
+  background: rgba(250, 128, 114, 0.315);
+  padding: 10px 20px;
+  color: rgba(80, 32, 32, 0.733);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  text-align: center;
 }

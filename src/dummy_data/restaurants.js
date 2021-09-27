@@ -6,11 +6,13 @@ export const restaurantsData = [
     menus: [
       {
         name: 'Spicy Fried Rice',
-        price: '$16.6'
+        price: '$16.6',
+        img: 'fried-rice.png'
       },
       {
         name: 'Spicy Fried Chicken',
-        price: '$14.5'
+        price: '$14.5',
+        img: 'chicken.png'
       }
     ]
   },
@@ -21,11 +23,13 @@ export const restaurantsData = [
     menus: [
       {
         name: 'Salmon Fish Sushi',
-        price: '$34.5'
+        price: '$34.5',
+        img: 'salmon.png'
       },
       {
-        name: 'Balado Seafood',
-        price: '$12.7'
+        name: 'Balado Seafood noodle',
+        price: '$12.7',
+        img: 'noodle.png'
       }
     ]
   },
@@ -36,11 +40,13 @@ export const restaurantsData = [
     menus: [
       {
         name: 'Tomyum Black Chicken',
-        price: '$12.7'
+        price: '$12.7',
+        img: 'chicken.png'
       },
       {
         name: 'French Fries',
-        price: '$6'
+        price: '$6',
+        img: 'french-fries.png'
       }
     ]
   },
@@ -51,11 +57,13 @@ export const restaurantsData = [
     menus: [
       {
         name: 'Spicy Fried Rice',
-        price: '$6'
+        price: '$6',
+        img: 'fried-rice.png'
       },
       {
         name: 'Spicy Fried Chicken',
-        price: '$6'
+        price: '$6',
+        img: 'chicken.png'
       }
     ]
   },
