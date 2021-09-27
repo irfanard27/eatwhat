@@ -17,8 +17,9 @@ const customStyles = {
 
 export default function Header(props) {
 
+  const getTime = localStorage.getItem("timer") !== null ? moment(localStorage.getItem("timer"), "HH:mm") : moment("11:30", "HH:mm")
   const timer = useRef()
-  const [endTime, setEndTime] = useState(moment('15:30', "HH:mm"))
+  const [endTime, setEndTime] = useState(getTime)
   const [visible, setVisible] = useState(false)
 
   const openTimePicker = () => {
@@ -30,20 +31,26 @@ export default function Header(props) {
   }
 
   const setTime = () => {
-    let h = document.getElementById("hour").value
-    let m = document.getElementById("minute").value
-    setEndTime(moment(`${h}:${m}`, "HH:mm"))
+    let time = document.getElementById("time").value
+    setEndTime(moment(time, "HH:mm"))
+    localStorage.setItem("timer", time)
     closeTimePicker()
-    timer.current.start()
+
+    let isTimesUp = document.getElementsByClassName("header-timer")[0].textContent
+    if (isTimesUp === "Times Up") {
+      window.location.reload()
+    }
   }
 
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
+      props.timesUp(true)
       return "Times Up"
     } else {
       return <span>{hours}h {minutes}m {seconds}s</span>
     }
   }
+
 
   return (
     <>
@@ -55,7 +62,8 @@ export default function Header(props) {
           <div onClick={openTimePicker} style={{ cursor: 'pointer' }}>
             Time End at <b><span>{endTime.format("HH:mm")}</span></b>
             <span className="header-timer">
-              <Countdown ref={timer} date={endTime + 1000 * 60} renderer={renderer} />
+              <Countdown ref={timer}
+                date={endTime} renderer={renderer} />
             </span>
           </div>
         </div>
@@ -71,11 +79,13 @@ export default function Header(props) {
       >
         <div style={{ width: 300, textAlign: "center" }}>
           Set a End Time <br />
-          <div className="input-container">
-            <input className="input" type="number" id="hour" placeholder="Hour" />
-            <input className="input" type="number" id="minute" placeholder="Minutes" />
-          </div>
-          <button className="button" onClick={setTime}>Save</button>
+          <form onSubmit={setTime}>
+            <div className="input-container">
+              <input type="time" format="HH:mm" className="input" id="time" style={{ width: 100 }} />
+            </div>
+
+            <button className="button" type="submit">Save</button>
+          </form>
         </div>
       </ReactModal>
     </>

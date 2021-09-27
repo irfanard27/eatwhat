@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Card(props) {
+export default function SelectedCard(props) {
 
   const onMenuClick = (index) => {
     return props.onMenuClick({
@@ -9,13 +9,9 @@ export default function Card(props) {
     })
   }
 
-  const onVoteClick = (index) => {
-    return props.onVote(index)
-  }
-
   return (
     <>
-      <div className="card" key={props.index} style={{ margin: "auto" }}>
+      <div className="card2" key={props.index}>
         <div className="card-thumbnail">
           <img src={`img/${props.img}`} alt={props.img} />
         </div>
@@ -47,13 +43,6 @@ export default function Card(props) {
           ))}
 
         </div>
-
-        <div style={{ textAlign: "center", marginTop: 10 }}>
-          <button className={!props.voted ? "card-button-active" : "card-button"} onClick={() => onVoteClick(props.index)}>
-            {props.voted ? "Vote" : "Unvote"}
-          </button>
-        </div>
-
       </div>
     </>
   )
